@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-8 d-grid flex-column gap-3">
+    <div class="card text-dark bg-light p-4 d-grid flex-column gap-3">
+      <h1 class="m-0"><%= @flat.name %></h1>
+      <p class="m-0"><%= @flat.address %></p>
+    </div>
+
+    <div class="card text-dark bg-light p-4 d-grid flex-column gap-3">
+      <h2 class="m-0">A bit more about this flat...</h2>
+      <p class="m-0"><%= @flat.description %></p>
+    </div>
+
+    <div class="card text-dark bg-light p-4 d-grid flex-column gap-3">
+      <h2 class="m-0">Details</h2>
+      <div class="d-flex gap-3">
+        <div class="d-flex gap-2 align-items-center">
+          <i class="fa-solid fa-users"></i>
+          <p class="m-0 fs-6"><%= @flat.number_of_guests %></p>
+        </div>
+        <div class="d-flex gap-2 align-items-center">
+          <i class="fa-solid fa-euro-sign"></i>
+          <p class="m-0 fs-6"><%= @flat.price_per_night %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-4 d-grid gap-3" style="height: min-content;">
+    <div class="card text-dark bg-light p-4 d-flex flex-column gap-3">
+      <h4 class="m-0">Book this place!</h4>
+      <%= simple_form_for :book, url: flat_path do |f| %>
+        <%# <div class="input-group"> %>
+            <div class="input-group">
+              <%= f.input :from, as: :date, html5: true, wrapper: false, label_html: { class: 'input-group-text' }, wrapper_html: { class: 'username' }  %>
+          </div>
+          <%# </div> %>
+        <div class="form-inputs">
+
+          <%= f.input :from, as: :date, html5: true, wrapper: false, input_html: { class: 'input-group' }%>
+          <%= f.input :to, as: :date, html5: true, wrapper_html: { class: 'input-group' } %>
+        </div>
+        <div class="form-actions">
+          <button type="<%= :submit %>" class="btn btn-success ">Book</button>
+        </div>
+      <% end %>
+
+    </div>
+    <div class="card text-dark bg-light p-4 d-flex flex-row justify-content-between gap-3">
+      <h6 class="m-0">Share</h6>
+      <div class="d-flex gap-2 align-items-center fs-4">
+        <i class="fa-brands fa-square-facebook"></i>
+        <i class="fa-brands fa-square-twitter"></i>
+        <i class="fa-brands fa-square-pinterest"></i>
+        <i class="fa-solid fa-square-envelope"></i>
+      </div>
+    </div>
+  </div>
+</div>

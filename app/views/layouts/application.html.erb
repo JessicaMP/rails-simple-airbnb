@@ -8,9 +8,28 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.2/css/all.css">
+
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+        <div class="d-flex justify-content-between w-100 p-2">
+          <a class="navbar-brand d-block" href="<%= flats_path %>">Simple airbnb</a>
+          <a class="btn btn-outline-primary d-block" href="<%= new_flat_path %>" type="button">Add Flat</a>
+          </div>
+      </div>
+    </nav>
+    <div class="container py-4">
+      <%= yield %>
+    </div>
   </body>
 </html>
+<%# echo "gem 'simple_form'" >> Gemfile %>
+<%# echo "gem 'faker'" >> Gemfile %>
+<%# rails g model Flat name:string address:string description:text price_per_night:integer number_of_guests:integer %>
+<%# rails g controller Flats %>
